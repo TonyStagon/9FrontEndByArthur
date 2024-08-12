@@ -1,0 +1,798 @@
+/* Global styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+.navbar:hover {
+    background-color: black;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Adjust this value to ensure it aligns with the right edge of the dropdown menu */
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: red; /* Change color on hover if desired */
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-image: url('unnamed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: filter 0.3s;
+}
+
+.navbar:hover .logo {
+    filter: invert(1);
+}
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 180px;
+    margin-left: -40px;
+}
+
+.hamburger-menu i {
+    font-size: 24px;
+    color: black;
+    transition: color 0.3s;
+}
+
+.navbar:hover .hamburger-menu i {
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+ 
+    z-index: 1000;
+    padding-right: 180px;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-bottom: 90%;
+}
+
+.dropdown-menu .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu .nav-links li {
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu .nav-links li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu .nav-links a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu .nav-links a:hover {
+    background-color: #ddd;
+}
+
+.hamburger-menu.active + .dropdown-menu {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: inherit;
+        right: 0;
+    }
+
+    .dropdown-menu .nav-links {
+        flex-direction: column;
+    }
+
+    .dropdown-menu .nav-links a {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+/* Section 1 styles (formerly "About") */
+.about {
+    
+    background-color: rgb(201, 196, 196);
+    padding: 50px;
+    text-align: center;
+    min-height: 100vh;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.introduction {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    padding-bottom: 170px;
+    margin: 0 auto;
+    
+}
+
+/* Section 2 styles */
+.section2 {
+    background-color: #f8f8f8;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 25vh;
+    position: relative;
+    margin-top: -25vh;
+    z-index: 1;
+}
+
+.section2 .page-break {
+    width: 100%;
+    height: 40px;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.section2 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    height: calc(25vh - 40px);
+}
+
+.section2 .grid-left, .section2 .grid-right {
+    height: 100%;
+}
+
+.section2 .grid-left {
+    background-color: rgb(112, 106, 106);
+}
+
+.section2 .grid-right {
+    background-color: #f0f0f0;
+
+}
+
+.section2 .page-break:first-child {
+    width: 100%;
+    height: 40px;
+    background-color: #f0f0f0;
+}
+
+.section2 .page-break:last-child {
+    width: 100%;
+    height: 40px;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Section 3 styles */
+.section3 {
+   
+    background-color: #f0f0f0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 50vh;
+    position: relative;
+    z-index: 1;
+
+}
+
+.section3 .grid {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    height: calc(50vh - 20px);
+}
+
+.section3 .grid-left, .section3 .grid-right {
+    height: 100%;
+}
+
+.section3 .grid-left {
+    background-color: rgb(112, 106, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.grid-right .heading {
+    font-size: 30px;
+    padding-left: 5%;
+    padding-bottom: 20px;
+    font-weight: normal; /* Normal weight for the heading */
+}
+
+
+
+.grid-right .title {
+    font-size: 28px;
+     padding-left: 5%;
+   
+     color: #333;
+    font-weight: bold; /* Bolder weight for the title */
+    margin-top: 10px; /* Space between heading and title */
+}
+
+.grid-right .description {
+   
+    line-height: 1.5; /* Adjust line spacing for readability */
+    margin-top: 10px; /* Space between title and paragraph */
+    padding-left: 5%;
+    color: #666;
+    font-size: 18px;
+   
+}
+
+.section3 .grid-right {
+    background-color: #f0f0f0;
+  
+}
+
+.section3 .heading {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Section 3 Author Box */
+
+.author-box {
+    
+    margin-left: 5%;
+    background-color: rgb(112, 106, 106);
+    color: white; /* White text color */
+    padding: 10px 30px; /* Padding inside the box */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold ;  /* Bold text */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: inline-block; /* Ensures the box fits around the text */
+    margin-top: 20px; /* Space between the paragraph and the box */
+
+
+}
+
+.bottom-line {
+    width: 100%;
+    height: 70px;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+.section3 .bottom-grid-left {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.section3 .bottom-grid-right {
+    background-color: rgb(112, 106, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+   
+}
+
+.bottom-grid-left .heading {
+    font-size: 24px;
+    padding-top: 20%;
+    padding-right: 75%;
+    font-weight: normal; /* Normal weight for the heading */
+}
+
+.bottom-grid-left .title {
+    font-size: 28px;
+     padding-right: 80%;
+     color: #333;
+    font-weight: bold; /* Bolder weight for the title */
+    margin-top: 10px; /* Space between heading and title */
+}
+
+.bottom-grid-left .description {
+   
+    line-height: 1.5; /* Adjust line spacing for readability */
+    margin-top: 15px; /* Space between title and paragraph */
+    padding-left: 5%;
+    color: #666;
+    font-size: 18px;
+}
+
+.author-box2 {
+    
+    margin-right: 75%;
+    background-color: rgb(112, 106, 106);
+    color: white; /* White text color */
+    padding: 10px 30px; /* Padding inside the box */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold ;  /* Bold text */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: inline-block; /* Ensures the box fits around the text */
+    margin-top: 20px; /* Space between the paragraph and the box */
+
+
+}
+
+.yellow-line {
+    height: 50px; /* Adjust the thickness as needed */
+    background-color: #f0f0f0;
+    margin-top: 119px; /* Adjust the space above the line if necessary */
+    width: 100%; /* Make sure the line spans the full width */
+}
+
+/* Section 4 styles */
+
+/* Section 4 Dropdown Styles */
+/* Section 4 styles */
+.section4 {
+    background-color: lightgrey;
+    color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure this is relative for absolute positioning of children */
+}
+.section4 .box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Gap between boxes */
+}
+
+.section4 .horizontal-boxes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensures the boxes are aligned on either side of the dropdown */
+}
+
+.section4 .box-left, .box-right, .box-below {
+   
+    position: relative;
+    background-color: rgb(112, 106, 106);
+    color: white;
+    height :200px ;
+    width: 150px;
+    padding: 20px;
+    padding-bottom: 30px;
+    margin: 10px;
+
+}
+
+.box-below
+{
+
+    margin-top: -100px;
+}
+.section4 .extra-pink-box {
+    position: absolute;
+    bottom: 10px;
+    margin: 0px;
+    left: 100px;
+    padding: 20px;
+    margin-left: 180px;
+    margin-bottom: 55px;
+    color: white;
+    width: 150px; /* Adjust width as needed */
+    height: 170px; /* Adjust height as needed */
+    background-color: rgb(112, 106, 106);
+}
+/* Section 4 Green Box */
+.section4 .green-box {
+    position: absolute;
+    padding: 20px;
+    color: white;
+    width: 270px; /* Adjust size as needed */
+    height: 160px; /* Adjust size as needed */
+    background-color: rgb(112, 106, 106);
+    margin: 0px;
+    margin-right: 210px;
+    margin-bottom: 55px;
+    bottom: 0;
+    right: 0;
+}
+
+
+.section4 .dropdown-container {
+    position: relative;
+    margin: -15px 35px ; /* Remove any margin between the dropdown and the boxes */
+ 
+
+}
+
+
+/* Section 4 Dropdown Styles 
+.section4 .dropdown-container {
+    position: absolute;
+    top: 50px; /* Move down from the top of Section 4 */
+ /*   left: 50%;
+    transform: translateX(-50%);
+/*}
+
+*/
+.section4 .dropdown-button {
+    background-color: white;
+    color: black;
+    
+    padding: 10px 90px;
+    font-size: 16px;
+    border: 1px solid black; /* Black border to make the box stand out */
+    cursor: pointer;
+    width: 280px; /* Adjust the width as needed */
+    height: 50px;
+    text-align: center;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section4 .dropdown-button i {
+    margin-left: 10px;
+}
+
+.section4 .dropdown-button:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.section4 .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: white;
+    min-width: 270px;
+    border: 1px solid black; /* Black border to make the box stand out */
+    z-index: 1;
+   margin-top: -50px;
+ 
+    overflow: hidden;
+   
+    top: 50px; /* Position it directly below the button */
+    left: 0; /* Align with the left edge of the dropdown button */
+}
+
+
+.section4 .dropdown-content a {
+    color: black;
+    padding: 16px 20px;
+    padding-left: 90px;
+    text-decoration:none ;
+    display: block;
+    
+    border: 1px solid black; 
+}
+.section4 .dropdown-container.active .dropdown-content {
+    display: block;
+    
+}
+
+
+/* Section 5 styles */
+/* Section 5 styles */
+.section5 {
+    padding: 100px 20px;
+    padding-bottom: 0px;
+    
+    text-align: center;
+    background-color: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section5 .horizontal-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Adjust the gap between boxes as needed */
+    height: 100%;
+}
+
+.horizontal-boxes .title {
+    font-size: 28px;
+    padding-right: 70%;
+     color: #ffffff;
+    font-weight: bold; /* Bolder weight for the title */
+    margin-top: 10px; /* Space between heading and title */
+}
+
+.horizontal-boxes .description {
+   
+    line-height: 1.5; /* Adjust line spacing for readability */
+    margin-top: 15px; /* Space between title and paragraph */
+    padding-left: 7%;
+    text-align: left;
+    padding-right: 11%;
+    color: #ffffff;
+    font-size: 18px;
+}
+.horizontal-boxes .description2 {
+   
+    line-height: 1.5; /* Adjust line spacing for readability */
+    margin-top: -12px; /* Space between title and paragraph */
+    padding-left: 7%;
+    text-align: left;
+    padding-right: 11%;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.section5 .black-box {
+    width: 370px; /* Adjust width as needed */
+    height: 370px; /* Adjust height as needed */
+    color: white;
+    background-color: rgb(92, 92, 92);
+    margin: 0 10px;
+}
+
+
+.author-box3 {
+    
+    margin-right: 50%;
+    background-color: white; /* Black background */
+    color: rgb(92, 92, 92); /* White text color */
+    padding: 10px 50px; /* Padding inside the box */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold ;  /* Bold text */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: inline-block; /* Ensures the box fits around the text */
+    margin-top: 75px; /* Space between the paragraph and the box */
+
+
+}
+
+.author-box4 {
+    
+    margin-right: 50%;
+    background-color: white; /* Black background */
+    color: rgb(92, 92, 92); /* White text color */
+    padding: 10px 50px; /* Padding inside the box */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold ;  /* Bold text */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: inline-block; /* Ensures the box fits around the text */
+    margin-top: -13px; /* Space between the paragraph and the box */
+
+
+}
+
+.author-box5 {
+    
+    margin-right: 50%;
+    background-color: white; /* Black background */
+    color: rgb(92, 92, 92); /* White text color */
+    padding: 10px 50px; /* Padding inside the box */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold ;  /* Bold text */
+    border-radius: 5px; /* Optional: rounded corners */
+    display: inline-block; /* Ensures the box fits around the text */
+    margin-top: 44%; /* Space between the paragraph and the box */
+
+
+}
+
+
+/* Section 6 styles */
+.section6 {
+    padding: 0;
+    padding-bottom: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+  background-color: #f0f0f0;
+}
+
+
+.pink-background {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+   background-color: lightgrey;
+   
+}
+
+.diagonal-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.diagonal-box {
+    position: absolute;
+    width: 17%;
+    height: 20%;
+}
+
+.diagonal-box:nth-child(1) {
+    top: 5%;
+    left: 5%;
+    background-color: rgb(112, 106, 106);
+}
+
+.diagonal-box:nth-child(2) {
+    top: 20%;
+    left: 20%;
+    background-color: white;
+}
+
+.diagonal-box:nth-child(3) {
+    top: 35%;
+    left: 35%;
+    background-color: rgb(112, 106, 106);
+}
+
+.diagonal-box:nth-child(4) {
+    top: 50%;
+    left: 50%;
+    background-color: white;
+}
+
+.diagonal-box:nth-child(5) {
+    top: 65%;
+    left: 65%;
+    background-color: rgb(112, 106, 106);
+}
+
+.diagonal-box:nth-child(6) {
+    top: 80%;
+    left: 80%;
+    background-color: white;
+}
+
+
+
+
+/* Pop-up Box Styles */
+.section4 .popup-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    margin-top: 15px;
+    z-index: 1001; /* Above other elements */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 800px;
+    max-width: 80%;
+    height: 350px;
+    text-align: center;
+}
+
+
+.section4 .popup-content {
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.section4 .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.section4 .dropdown-content {
+    display: none;
+}
+
+.section4 .dropdown-content.active {
+    display: block;
+}
+
+.section4 .popup-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 300px;
+    background-color: white;
+    border: 2px solid black;
+    z-index: 1000;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.section4 .popup-box.show {
+    display: block;
+}
+
+.section4 .popup-content {
+    margin-top: 50px;
+  
+    font-size: 24px;
+}
+
+.section4 .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
